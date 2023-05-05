@@ -22,8 +22,8 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('initsixcloud/petclinic', "./docker")
-                 docker.withRegistry('https://registry.hub.docker.com', 'acr_demo') {
+                 def customImage = docker.build('AzureTushar/petclinic', "./docker")
+                 docker.withRegistry('https://acrregistryabc.azurecr.io', 'acr_demo') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
            }
